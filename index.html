@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wall Editor 3D</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ribbon">
+    <div class="ribbon-tab">
+      <button class="ribbon-button">
+        <i class="fas fa-folder-open"></i>
+        Open
+      </button>
+      <div class="ribbon-content">
+        <button class="ribbon-item" id="newDrawing">
+          <i class="fas fa-file"></i>
+          New Drawing
+        </button>
+        <button class="ribbon-item">
+          <i class="fas fa-folder-open"></i>
+          Open File
+        </button>
+        <button class="ribbon-item">
+          <i class="fas fa-save"></i>
+          Save
+        </button>
+      </div>
+    </div>
+    <div class="ribbon-tab">
+      <button class="ribbon-button">
+        <i class="fas fa-edit"></i>
+        Edit
+      </button>
+      <div class="ribbon-content">
+        <button class="ribbon-item">
+          <i class="fas fa-undo"></i>
+          Undo
+        </button>
+        <button class="ribbon-item">
+          <i class="fas fa-redo"></i>
+          Redo
+        </button>
+        <button class="ribbon-item">
+          <i class="fas fa-trash"></i>
+          Clear All
+        </button>
+      </div>
+    </div>
+    <div class="ribbon-tab">
+      <button class="ribbon-button">
+        <i class="fas fa-question-circle"></i>
+        Help
+      </button>
+      <div class="ribbon-content">
+        <button class="ribbon-item">
+          <i class="fas fa-book"></i>
+          Documentation
+        </button>
+        <button class="ribbon-item">
+          <i class="fas fa-info-circle"></i>
+          About
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <div class="sidebar-title">
+        <i class="fas fa-tools"></i>
+        <span>Wall Editor Features</span>
+      </div>
+
+      <!-- View Options -->
+      <div class="feature-section">
+        <div class="section-title">
+          <i class="fas fa-eye"></i>
+          <span>View Options</span>
+        </div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="fas fa-exchange-alt feature-icon"></i>
+            <span class="feature-text"><strong>2D/3D Toggle:</strong> Switch between 2D plan view and 3D perspective</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-expand feature-icon"></i>
+            <span class="feature-text"><strong>Zoom Fit:</strong> Auto-zoom to show all walls</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-search-plus feature-icon"></i>
+            <span class="feature-text"><strong>Zoom In/Out:</strong> Mouse wheel or on-screen controls</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawing Tools -->
+      <div class="feature-section">
+        <div class="section-title">
+          <i class="fas fa-drafting-compass feature-icon"></i>
+          <span>Drawing Tools</span>
+        </div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="fas fa-pencil-ruler feature-icon"></i>
+            <span class="feature-text"><strong>Wall Drawing:</strong> Click and drag to create walls</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-magnet feature-icon"></i>
+            <span class="feature-text"><strong>Grid Snapping:</strong> Precise 1m grid alignment</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-ruler-combined feature-icon"></i>
+            <span class="feature-text"><strong>Real-time Measurement:</strong> Shows wall length as you draw</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Features -->
+      <div class="feature-section">
+        <div class="section-title">
+          <i class="fas fa-cube feature-icon"></i>
+          <span>3D Features</span>
+        </div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="fas fa-texture feature-icon"></i>
+            <span class="feature-text"><strong>Realistic Textures:</strong> Wall materials in 3D view</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-lightbulb feature-icon"></i>
+            <span class="feature-text"><strong>Lighting:</strong> Dynamic scene lighting</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-arrows-alt feature-icon"></i>
+            <span class="feature-text"><strong>Orbit Controls:</strong> Rotate, pan and zoom in 3D</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interaction -->
+      <div class="feature-section">
+        <div class="section-title">
+          <i class="fas fa-mouse-pointer feature-icon"></i>
+          <span>Interaction</span>
+        </div>
+        <div class="feature-list">
+          
+          <div class="feature-item">
+            <i class="fas fa-highlighter feature-icon"></i>
+            <span class="feature-text"><strong>Hover Effects:</strong> Visual feedback on mouseover</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-trash feature-icon"></i>
+            <span class="feature-text"><strong>Delete by Click:</strong> Click a wall to delete it with audio feedback</span>
+          </div>
+        
+          <div class="feature-item">
+            <i class="fas fa-info-circle feature-icon"></i>
+            <span class="feature-text"><strong>Real-time Stats:</strong> Wall count and measurements</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid Controls -->
+      <div class="feature-section">
+        <div class="section-title">
+          <i class="fas fa-border-all feature-icon"></i>
+          <span>Grid Controls</span>
+        </div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="fas fa-th-large feature-icon"></i>
+            <span class="feature-text"><strong>Visible Grid:</strong> 1m x 1m reference grid</span>
+          </div>
+          <div class="grid-controls"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="top-bar">
+        <button id="toggleSidebarBtn" class="btn toggle-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <button id="mobileMenuBtn" class="btn toggle-btn mobile-menu-btn">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+
+        <div class="view-indicator">
+          <i class="fas fa-cube"></i>
+          <span id="view-mode">2D View</span>
+        </div>
+
+        <div class="btn-group">
+          <button id="toggleViewsBtn" class="btn">
+            <i class="fas fa-exchange-alt"></i>
+            Toggle View
+          </button>
+          <button id="zoomFitBtn" class="btn">
+            <i class="fas fa-expand"></i>
+            Zoom Fit
+          </button>
+        </div>
+
+        <div class="info-panel">
+          <div class="info-item">
+            <i class="fas fa-ruler-combined"></i>
+            <span>Wall:</span>
+            <span id="wall-length" class="info-value">None</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-border-all"></i>
+            <span>Zoom:</span>
+            <span id="zoom-level" class="info-value">100%</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-wall"></i>
+            <span>Walls:</span>
+            <span id="walls-count" class="info-value">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="app">
+        <canvas id="canvas2D"></canvas>
+        <canvas id="canvas3D"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="zoom-controls">
+    <div class="zoom-btn" id="zoomInBtn">
+      <i class="fas fa-plus"></i>
+    </div>
+    <div class="zoom-btn" id="zoomOutBtn">
+      <i class="fas fa-minus"></i>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+  <script>
+    const toggleBtn = document.getElementById("toggleSidebarBtn");
+    const sidebar = document.querySelector(".sidebar");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const btnGroup = document.querySelector(".btn-group");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("collapsed");
+    });
+
+    mobileMenuBtn.addEventListener("click", () => {
+      btnGroup.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!btnGroup.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        btnGroup.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>
